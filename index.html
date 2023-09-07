@@ -7,19 +7,382 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+
+    <style>
+
+      @import url(https://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+      
+      
+      body{
+          font-family: 'Droid Arabic Kufi', 'Poppins';
+      }
+      
+      
+      .row{
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .footer ul{
+        color:var(--primaryColor) ;
+        list-style: square;
+      }
+      .footer{
+        background-color: var(--secondaryColor);
+      
+      }
+      
+      .private4map{
+        max-width:700px ;
+        max-height: 680px;
+        }
+      .maplock{
+        height: 100%;
+        width: 100%;
+        margin: auto;
+      }
+      
+      .maplock{
+        min-width: 130px;
+        max-width: fit-content;
+        height: 100%;
+      }
+      
+      
+      .footer-col{
+         padding: 15px 75px;
+         
+        padding-left: 8%;
+      }
+      .footer-col h4{
+        font-size: 18px;
+        color: #ffffff;
+        text-transform: capitalize;
+        margin-bottom: 35px;
+        font-weight: 500;
+        position: relative;
+      }
+      .footer-col h4::before{
+        content: '';
+        position: absolute;
+        left:0;
+        bottom: -10px;
+        background-color: var(--primaryColor);
+        height: 2px;
+        box-sizing: border-box;
+        width: 50px;
+      }
+      .footer-col ul li:not(:last-child){
+        margin-bottom: 10px;
+      }
+      .footer-col ul li a{
+        font-size: 16px;
+        text-transform: capitalize;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 300;
+        color: #bbbbbb;
+        display: block;
+        transition: all 0.3s ease;
+      }
+      .footer-col ul li a:hover{
+        color: #ffffff;
+        padding-left: 8px;
+      }
+      .footer-col .social-links a{
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        background-color: rgba(255,255,255,0.2);
+        margin:0 10px 10px 0;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 50%;
+        color: #ffffff;
+        transition: all 0.5s ease;
+      }
+      .footer-col .social-links a:hover{
+        color: #2f2c2c;
+        background-color: #ffffff;
+      }
+      
+      /*responsive*/
+      @media(max-width: 767px){
+        .footer-col{
+          width: 50%;
+          margin-bottom: 30px;
+      }
+      }
+      @media(max-width: 574px){
+        .footer-col{
+          width: 100%;
+      }
+      }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+          :root{
+              --primaryColor:#03a489;
+              --secondaryColor:#2f2c2c;
+              --thirdColor:#59336a;
+              --lightColor:rgb(233, 234, 234);
+              --pading:8%;
+          }
+          body{
+              width: 100%;
+              overflow-x: hidden;
+          }
+         
+          :root {
+        --navbar-bg-color: white;
+        --navbar-text-color: #2f2c2c;
+        --navbar-text-color-focus: white;
+        --navbar-bg-contrast: #03a489;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+    
+      .container {
+        max-width: 1000px;
+        padding-left: 1.4rem;
+        padding-right: 1.4rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #navbar {
+          z-index: 100;
+        --navbar-height: 70px;
+        position: fixed;
+        height: var(--navbar-height);
+        background-color: var(--navbar-bg-color);
+        left: 0;
+        right: 0;
+        top: 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+      }
+      .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+        align-items: center;
+      }
+      .navbar-item {
+        width: max-content;
+        font-size: 14px;
+      }
+      
+      .home-link{
+          position: absolute;
+          left: 10%;
+      }
+      
+      .navbar-links{
+          position: absolute;
+          width: fit-content;
+          right: 4%;
+      }
+      
+      .home-link,
+      .navbar-link {
+        color: var(--navbar-text-color);
+        text-decoration: none;
+        display: flex;
+        font-weight: 400;
+        align-items: center;
+      }
+      
+      .home-link:is(:focus, :hover) {
+        color: var(--navbar-text-color-focus);
+      }
+      
+      .navbar-link {
+        justify-content: center;
+        width: 100%;
+        padding: 0.4em 0.8em;
+        border-radius: 5px;
+      }
+      
+      .navbar-link:is(:focus, :hover) {
+        color: var(--navbar-text-color-focus);
+        background-color: var(--navbar-bg-contrast);
+      }
+      .navbar-logo {
+        background-color: var(--navbar-text-color-focus);
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        margin-right: 0.5em;
+      }
+      #navbar-toggle {
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: absolute;
+        right: 9%;
+      }
+      .icon-bar {
+        display: block;
+        width: 25px;
+        height: 4px;
+        margin: 2px;
+        background-color: var(--navbar-text-color);
+      }
+      #navbar-toggle:is(:focus, :hover) .icon-bar {
+        background-color: var(--navbar-text-color-focus);
+      }
+      #navbar-toggle[aria-expanded="true"] .icon-bar:is(:first-child, :last-child) {
+        position: absolute;
+        margin: 0;
+        width: 30px;
+      }
+      #navbar-toggle[aria-expanded="true"] .icon-bar:first-child {
+        transform: rotate(45deg);
+      }
+      #navbar-toggle[aria-expanded="true"] .icon-bar:nth-child(2) {
+        opacity: 0;
+      }
+      #navbar-toggle[aria-expanded="true"] .icon-bar:last-child {
+        transform: rotate(-45deg);
+      }
+      #navbar-menu {
+        position: fixed;
+        top: var(--navbar-height);
+        bottom: 0;
+        opacity: 0;
+        visibility: hidden;
+        left: 0;
+        right: 0;
+      }
+      #navbar-toggle[aria-expanded="true"] + #navbar-menu {
+        background-color: rgba(0, 0, 0, 0.4);
+        opacity: 1;
+        visibility: visible;
+      }
+      .navbar-links {
+        list-style: none;
+        position: absolute;
+        background-color: var(--navbar-bg-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1.4rem;
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      }
+      
+      #navbar-toggle[aria-expanded="true"] + #navbar-menu .navbar-links {
+        padding: 1em;
+      }
+      
+      @media screen and (min-width: 970px) {
+        #navbar-toggle,
+        #navbar-toggle[aria-expanded="true"] {
+          display: none;
+        }
+      
+        #navbar-menu,
+        #navbar-toggle[aria-expanded="true"] #navbar-menu {
+          visibility: visible;
+          opacity: 1;
+          position: static;
+          display: block;
+          height: 100%;
+        }
+      
+        .navbar-links,
+        #navbar-toggle[aria-expanded="true"] #navbar-menu .navbar-links {
+          margin: 0;
+          padding: 0;
+          box-shadow: none;
+          flex-direction: row;
+          height: 100%;
+        }
+      
+      }
+          
+      </style>
+
   </head>
   <body>
+    <header id="navbar" class="headers">
+      <nav class="navbar-container container">
+        <a href="" class="home-link">
+          <h1 style="color: var(--primaryColor);">MEDmart</h1>
+        </a>
+        <button type="button" id="navbar-toggle" aria-controls="navbar-menu" aria-label="Toggle menu" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div id="navbar-menu" aria-labelledby="navbar-toggle">
+          <ul class="navbar-links">
+            <li class="navbar-item"><a class="navbar-link" href="#">علاقات عامة</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#">قصص نجاح</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#">المسؤولية المحتمعية</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#">حول ميدمارت</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#">مؤتمرات</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#">معارض</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#">خدماتنا</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#">الرئيسية</a></li>           
+            <li class="navbar-item"><a class="navbar-link" href="#"><img src="en.png" style="width: 30px; height: 30px; border-radius: 100%;" alt=""></a></li>           
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <script>
+      const navbarToggle = navbar.querySelector("#navbar-toggle");
+const navbarMenu = document.querySelector("#navbar-menu");
+const navbarLinksContainer = navbarMenu.querySelector(".navbar-links");
+let isNavbarExpanded = navbarToggle.getAttribute("aria-expanded") === "true";
+
+const toggleNavbarVisibility = () => {
+isNavbarExpanded = !isNavbarExpanded;
+navbarToggle.setAttribute("aria-expanded", isNavbarExpanded);
+};
+
+navbarToggle.addEventListener("click", toggleNavbarVisibility);
+
+navbarLinksContainer.addEventListener("click", (e) => e.stopPropagation());
+navbarMenu.addEventListener("click", toggleNavbarVisibility);
+  </script>
     <section class="section-1">
-      <h1>خدمــــاتـنـا</h1>
-      <div class="list">
+      <div class="content">
+        <h1>خدمــــاتـنـا</h1>
+        <div class="list">
         <div class="cont">
           <h2>تسويق</h2>
           <p>نحن نقدم حلول
             تسويق متكاملة
             وحلول bd مصمـمة لدعم
             احتـياجات عملك
-           من الاستراتيجية 
-           والعلامة التجــــارية
+            من الاستراتيجية 
+            والعلامة التجــــارية
             والـــــــــــوعي الى
             جــــــيل الرصاص
           </p>
@@ -32,16 +395,16 @@
             احتـياجات عملك
            من الاستراتيجية 
            والعلامة التجــــارية
-            والـــــــــــوعي الى
-            جــــــيل الرصاص</p>
-        </div>
+           والـــــــــــوعي الى
+           جــــــيل الرصاص</p>
+          </div>
         <div class="cont">
           <h2>اعلان وعلاقات عامة</h2>
           <p>نحن نقدم حلول
             تسويق متكاملة
             وحلول bd مصمـمة لدعم
             احتـياجات عملك
-           من الاستراتيجية 
+            من الاستراتيجية 
            والعلامة التجــــارية
             والـــــــــــوعي الى
             جــــــيل الرصاص</p>
@@ -52,25 +415,88 @@
             تسويق متكاملة
             وحلول bd مصمـمة لدعم
             احتـياجات عملك
-           من الاستراتيجية 
+            من الاستراتيجية 
            والعلامة التجــــارية
-            والـــــــــــوعي الى
-            جــــــيل الرصاص</p>
+           والـــــــــــوعي الى
+           جــــــيل الرصاص</p>
         </div>
         <div class="cont">
           <h2>التوزيع</h2>
           <p>نحن نقدم حلول تسويق متكاملةوحلول bd مصمـمة لدعم
             احتـياجات عملك
-           من الاستراتيجية 
+            من الاستراتيجية 
            والعلامة التجــــارية
-            والـــــــــــوعي الى
-            جــــــيل الرصاص</p>
-        </div>
+           والـــــــــــوعي الى
+           جــــــيل الرصاص</p>
+          </div>
       </div>
+    </div>
       <div class="btn-container">
-        <a href="#" class="btn-back"> <span> &#x3c; </span> الرجـــــوع</a>
+        <a href="#" class="btn-back">الرجـــــوع</a>
     </div>
     </section>
+    <section>
+      <footer class="footer">
+          <div style="height: 5px; width: 100%; background-color: orange;"></div>
+          <div class="container">
+          
+              <div class="footer-col private4map">
+               <div class="maplock">
+                 <h4>our location</h4>
+                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3426.5418488479527!2d30.99715742482927!3d30.815479974544374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f7c9f1772d67f1%3A0x623394ad7fd72dab!2sRoaya%20Properties!5e0!3m2!1sar!2seg!4v1689709803446!5m2!1sar!2seg" width="100%" height="100%"  style="border:none;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></ul>  
+               </div>
+             </div>
+             <div class="row">
+               <div class="footer-col">
+                 <h4>company</h4>
+                 <ul>
+                  <li><a href="">الرئيسية</a></li>
+                  <li><a href="">خدماتنا</a></li>
+                  <li><a href="">معارض</a></li>
+                  <li><a href="">مؤتمرات</a></li>
+                  <li><a href="">حول ميدمارت</a></li>
+                  <li><a href="">المسؤولية المحتمعية</a></li>
+                  <li><a href="">قصص نجاح</a></li>
+                  <li><a href="">علاقات عامة</a></li>
+                 </ul>
+               </div>
+          <div class="footer-col"> 
+          
+                <h4>telphone number</h4> 
+                <ul> 
+                <li><a >040-3577100</a></li> 
+                <li><a >01093033056</a></li> 
+                </ul>
+          
+                 <br>
+                 <h4> Address </h4>
+                 <ul>
+                   <li><a> برج الموده (2) <br>
+                    كورنيش الاستاد بجوار البنك الاهلي –  طنطا 
+                     </a></li>
+                 </ul>
+          
+          </div>
+               <div class="footer-col">
+                 <h4>follow us</h4>
+                 <div class="social-links">
+                   <a href="https://www.facebook.com/people/Roaya-Design/100069632954292/?mibextid=LQQJ4d"><i class="fab fa-facebook-f"></i></a>
+                   <!--
+                   <a href="#"><i class="fab fa-twitter"></i></a>
+                   <a href="#"><i class="fab fa-instagram"></i></a>
+                   <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                 -->
+                   <a href="https://wa.me/201093033056"><i class="fab fa-whatsapp"></i></a>
+                 </div>
+               </div>
+             </div>
+            </div>
+            
+          <div style="color: var(--lightColor); background-color: rgba(255, 255, 255,.05); position: relative;"><p style="text-align: center; margin: auto;">| All right reseved
+            <br> Desgined & Developed by <a href="https://api.whatsapp.com/send?phone=+201501099674&text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A7%D8%B3%D8%A3%D9%84%20%D8%B9%D9%84%D9%8A%20%D8%B3%D8%B9%D8%B1%20%D8%B9%D9%85%D9%84%20%D9%88%D9%8A%D8%A8%20%D8%B3%D8%A7%D9%8A%D8%AA" style="color:rgb(229, 165, 3);" >Rousmix</a>
+          </p></div><br><br>
+          </footer>
+    </section>  
     <script type="module" src="/main.js"></script>
   </body>
 </html>
